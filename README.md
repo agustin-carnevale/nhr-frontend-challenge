@@ -1,41 +1,36 @@
+# NHR Frontend Challenge 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Please start by initializing a local Git repository and making an initial commit with these files.
-As you progress through the codding challenge commit as often as possible, we want to see the progression of the code
-over time.
+# Notes
 
-# The assignment
+##  Initial thoughts and decisions
 
-Implement all or some of the following features in the order of your preference.
+For this challenge, due to the limited amount of time I focused first on refactoring the files to have a relatively good structure of components on which I could work nicely and add as much features as I could. Not following any particular pattern or known architecture such as clean architecture, but just a simple and clear organization for files/folders.
 
-* Populate the list with data from `Service.getTenants`.
-* Ability to filter the list using the tabs above the table
-* Ability to sort the list by clicking on the table column headers
-* Ability to add a tenant to the list using the form below the table and using `Service.addTenant`. Ideally the form is
- hidden by default and is displayed when clicking on the Add Tenant button.
-  * Validate tenant.leaseEndDate is in the future
-  * Validate tenant.name length is less than or equal to than 25 characters
-* Ability to delete a tenant by clicking on Delete and calling `Service.deleteTenant`
+At first glance, I realized the value that using Typescript could have added to the project and also making the development experience a lot better. Having said that, as I was given an already started project created with 'create-react-app' without the typescript support and also due to the amount of time I had, I decided not to refactor the project for this exercise, and work directly with js.
 
-`Service.js`  is an API mock. You don't need to modify it for any reason other than possibly fiddling with the data it 
-provides.
+Also...even though this is a very small/fake app or exercise, as the app has the typical fetch/add/delete actions on a list of elements, it would be great to add redux to manage all of these actions and the global state. The reason I didn't do it was to keep the code as simple and as small as possible, reducing the amount of boilerplate needed, thus the time spent on it. Having said that, for a real world/scalable project I would strongly recommend to add redux/redux-thunk (and typescript).
 
-You have 2 hours to hand over the results. Ideally you would implement the basic features in about 1 hour and use the
-remaining time to clean up the code, add some bells and whistles to the UI and possibly a few unit tests. 
+For the AddTenantForm, I initially just wrote a basic controlled-component to manage the state of the form (values of the inputs), but finally I decided to add a helper tool/lib called 'formik' that allows you to manage the state of the form as well as validations and error messages in a more clean way, letting me to have a lot less code and in a more clear way, without losing any control over the form.
 
-## Available Scripts
+##  About Styling
 
-In the project directory, you can run:
+I didn't have the time to focus too much on styling details, other than the loading spinner or a few red colors for error messages. This is one of the things that can be improved for sure.
 
-### `npm start`
+##  About Testing
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To be honest, due to the limited amount of time already mention above regarding other decisions, I didn't focus to much on tests. However, I tried to add at least a small glance on what they should look like and how they can be written and added. 
+For this matter, I used the already given/installed tools/libs (by the create-react-app) Jest and Testing-Library.
+I only wrote a few, not exhaustive at all, tests as a sample on only two of the components.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Next Steps
 
-### `npm test`
+As already mentioned above, if I had to continue working on this project, to improve the code, I would suggest adding typescript, redux and a more extensive test coverage.
+As well as improving the styling and also adding the sorting feature to the columns that I couldn't get to do because I run out of time.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Contact
+
+For any questions or doubts that could arise, please feel free to contact me at:
+
+[agustinc.jobs@gmail.com](mailto:agustinc.jobs@gmail.com)
