@@ -9,6 +9,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [tenants, setTenants] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     fetchTenants();
@@ -43,9 +44,17 @@ function App() {
         { error }
       </div>
       <div className="container">
-        <button className="btn btn-secondary">Add Tenant</button>
+        <button 
+          className="btn btn-secondary"
+          onClick={()=> setShowForm(!showForm)}
+        >
+          Add Tenant
+        </button>
       </div>
-      <AddTenantForm />
+      {
+        showForm && 
+        <AddTenantForm />
+      }
     </>
   );
 }
