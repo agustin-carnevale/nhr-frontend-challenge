@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddTenantForm from './components/AddTenantForm';
+import LoadingSpinner from './components/LoadingSpinner';
 import Tabs from './components/Tabs';
 import TenantsTable from './components/TenantsTable';
 import { Service } from './Service';
@@ -34,7 +35,7 @@ function App() {
         <Tabs />
         {
           loading 
-          ? <div>Loading..</div>
+          ? <LoadingSpinner />
           : <TenantsTable tenants={tenants}/>
         }
       </div>
