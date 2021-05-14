@@ -45,7 +45,20 @@ function App() {
     }
   }
 
-  
+  const onAddTenant = async (tenant) => {
+    setLoading(true);
+    setError('');
+    try {
+      const newTenant = await Service.addTenant(tenant);
+      setTenants([...tenants, newTenant]);
+      setLoading(false);
+      return {error: false}
+    } catch (error) {
+      setError("Something went wrong adding the tenant. Try again.");
+      setLoading(false);
+      return {error: true}
+    }
+  }
 
   const filteredTenants = useMemo(() => {
     switch (filter) {
@@ -85,7 +98,7 @@ function App() {
       </div>
       {
         showForm && 
-        <AddTenantForm />
+        <AddTenantForm onAddTenant={onAddTenant}/>
       }
     </>
   );
