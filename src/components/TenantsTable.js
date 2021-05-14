@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatDate } from '../utils/date';
 
 const TenantsTable = ({ tenants, onDelete }) => {
 
@@ -6,7 +7,7 @@ const TenantsTable = ({ tenants, onDelete }) => {
     <th>{tenant.id}</th>
     <td>{tenant.name}</td>
     <td>{tenant.paymentStatus}</td>
-    <td>{tenant.leaseEndDate}</td>
+    <td>{formatDate(tenant.leaseEndDate)}</td>
     <td>
       <button 
         className="btn btn-danger"
