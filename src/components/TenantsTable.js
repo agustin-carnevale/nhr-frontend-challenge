@@ -1,6 +1,17 @@
 import React from 'react'
 
-const TenantsTable = () => {
+const TenantsTable = ({ tenants }) => {
+
+  const RowItem = ({tenant}) => (<tr>
+    <th>{tenant.id}</th>
+    <td>{tenant.name}</td>
+    <td>{tenant.paymentStatus}</td>
+    <td>{tenant.leaseEndDate}</td>
+    <td>
+      <button className="btn btn-danger">Delete</button>
+    </td>
+  </tr>);
+
   return (
     <table className="table">
       <thead>
@@ -13,15 +24,7 @@ const TenantsTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td>Mark Otto</td>
-          <td>CURRENT</td>
-          <td>12/31/2020</td>
-          <td>
-            <button className="btn btn-danger">Delete</button>
-          </td>
-        </tr>
+      { tenants.map(t => (<RowItem key={t.id} tenant={t} />)) }
       </tbody>
     </table>
   );
