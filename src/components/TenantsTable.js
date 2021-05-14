@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TenantsTable = ({ tenants }) => {
+const TenantsTable = ({ tenants, onDelete }) => {
 
   const RowItem = ({tenant}) => (<tr>
     <th>{tenant.id}</th>
@@ -8,7 +8,12 @@ const TenantsTable = ({ tenants }) => {
     <td>{tenant.paymentStatus}</td>
     <td>{tenant.leaseEndDate}</td>
     <td>
-      <button className="btn btn-danger">Delete</button>
+      <button 
+        className="btn btn-danger"
+        onClick={() => onDelete(tenant.id)}
+      >
+        Delete
+      </button>
     </td>
   </tr>);
 

@@ -29,6 +29,20 @@ function App() {
     }
   }
 
+  const onDeleteTenant = async (id) => {
+    setLoading(true);
+    setError('');
+    try {
+      await Service.deleteTenant(id);
+      const newTenants = tenants.filter(t => t.id !== id);
+      setTenants(newTenants);
+    } catch (error) {
+      setError("Something went wrong deleting the tenant. Try again.");
+    }finally{
+      setLoading(false);
+    }
+  }
+
   return (
     <>
       <div className="container">
@@ -37,7 +51,7 @@ function App() {
         {
           loading 
           ? <LoadingSpinner />
-          : <TenantsTable tenants={tenants}/>
+          : <TenantsTable tenants={tenants} onDelete={onDeleteTenant}/>
         }
       </div>
       <div className="container text-center" style={{color: 'red'}}>
